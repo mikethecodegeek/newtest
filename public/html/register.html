@@ -1,0 +1,39 @@
+<h2>New User</h2>
+<div class="row topMargin">
+    
+    <div class="col-xs-3 input-field">
+        <label for = 'name'>Name</label>
+        <input id = 'name' type="text" ng-model="newName" placeholder="first last">
+    </div>
+    <div class="col-xs-3 input-field">
+        <label for = 'email'>Email</label>
+        <input id = 'email' type="text" ng-model="newEmail" placeholder="email">
+    </div>
+    <div class="col-xs-3 input-field">
+        <label for = 'username'>User Name</label>
+        <input id = 'username' type="text" ng-model="newUsername" placeholder="username">
+    </div>
+</div>
+
+<div class="row top">
+    
+    <div class="col-xs-3 input-field">
+        <label for = 'password'>Password</label>
+        <input id = 'password' type="password" ng-model="newPassword" placeholder="password">
+    </div>
+    
+    <div class="col-xs-3 input-field">
+        <label for = 'confirmPassword'>Password</label>
+        <input id = 'confirmPassword' type="password" ng-model="confirmPassword" placeholder="password again">
+    </div>
+    
+    <div class="col-xs-3 input-field">
+        <label for = 'profilePic'>Profile</label>
+        <input id = 'profilePic' type="text" ng-model="profilePic" placeholder="image url">
+    </div>
+</div>
+
+<div class="row">
+    
+    <button class="btn btn-primary top" ng-click="register()">Register</a>
+</div>

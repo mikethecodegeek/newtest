@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ABC Company | Sell Your Used Phone</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="/bower_components/sweetalert/dist/sweetalert.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/satellizer/0.14.0/satellizer.min.js"></script>
+    <script src="/js/module.js"></script>
+    <script src="/js/controllers.js"></script>
+    <script src="/js/services.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="/bower_components/sweetalert/dist/sweetalert-dev.js"></script>
+    <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+</head>
+<body ng-app='angularApp' ng-controller="mainCtrl">
+
+  <nav class="navbar navbar-default custom_nav">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+        </button>
+        <a class="navbar-brand" href="#">ABC Company</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a ng-show="loggedin" ui-sref='landing'>Home</a></li>
+          <li><a ng-show="loggedin" ui-sref="profile">Profile</a></li>
+          <li><a ng-show="!loggedin" ng-click="loginUser()">Login</a></li>
+          <li><a ng-show="!loggedin" ui-sref='register'>Register</a></li>
+          <li><a ng-show="loggedin" ng-click="logout()">Logout</a></li>
+          <li><a ng-show="admin" ui-sref="dashboard">Administrator</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Please Login</h4>
+              </div>
+              <div class="modal-body">
+                  <p>Email: <input id="email" ng-model='email' type="text"></p>
+                  <p>Password: <input id="password" ng-model="password" type="password"></p>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" ng-click="login()">Login</button>
+              </div>
+          </div>
+      </div>
+  </div>
+<div class="container">
+    <ui-view></ui-view>
+</div>
+</body>
+</html>

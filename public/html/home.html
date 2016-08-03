@@ -1,0 +1,92 @@
+<<<<<<< HEAD
+
+  <h2 class="center bottom">Select Your Brand</h2>
+=======
+<h2 class="center bottom" ng-show="one">Select Your Brand</h2>
+
+<div class="row center" ng-show="one">
+  <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="device in devices track by $index">
+      <div class="row">
+          <img class="selectionImage" ng-src="{{device.imgurl}}" alt="device-image">
+          <div class="caption">
+              <h3></h3>
+              <button type="button" class="btn btn-primary" ng-click="showModels(device.models)">{{device.name}}</button>
+>>>>>>> 1d60fca4717f911995eff2189bf203bd4bcce124
+
+  <div class="row center">
+    <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="device in devices track by $index">
+        <div class="row">
+            <img class="selectionImage" ng-src="{{device.imgurl}}" alt="device-image">
+            <div class="caption">
+                <h3>{{models.brand}}</h3>
+                <button type="button" class="btn btn-success" ng-click="showModels(device.models)">Choose</button>
+
+<<<<<<< HEAD
+            </div>
+        </div>
+    </div>
+  </div>
+=======
+<div class="row" ng-show="two">
+  
+    <h3 class="center bottom topMargin" ng-show="two">Select Your Model</h3>
+
+  <div class="row center topMargin">
+    <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="model in selectedModels track by $index">
+      <img class="selectionImage" ng-src="{{model.imgurl}}" alt="device-image">
+      <div class="caption">
+        <h3></h3>
+          <button type="button" class="btn btn-primary" ng-click="showVersions(model.versions)">{{model.name}}</button>
+      </div>
+       
+>>>>>>> 1d60fca4717f911995eff2189bf203bd4bcce124
+
+  <div class="row">
+    <div class="row center topMargin" ng-show="brand">
+      <h3 class="center bottom topMargin" >Select Your Model</h3>
+    </div>
+    <div class="row center topMargin">
+      <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="model in selectedModels track by $index">
+        <img class="selectionImage" ng-src="{{model.imgurl}}" alt="device-image">
+        <div class="caption">
+          <h3>{{model.name}}</h3>
+            <button type="button" class="btn btn-success" ng-click="showVersions(model.versions)">Choose</button>
+        </div>
+
+<<<<<<< HEAD
+=======
+<div class="row" ng-show="three">
+
+    <h3 class="center bottom topMargin">Select Your Device</h3>
+
+  <div class="row center top">
+    <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="version in selectedVersions track by $index">
+      <div class="thumbnail">
+        <img class="selectionImage" ng-src="{{version.imgurl}}" alt="device-image">
+          <div class="caption">
+            <h3>{{version.devicename}}</h3>
+            <h6>Description: {{version.description}}</h6>
+            <button type="button" class="btn btn-success" ui-sref="details({id:version._id})">Get Quote</button>
+>>>>>>> 1d60fca4717f911995eff2189bf203bd4bcce124
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="row center topMargin" ng-show="model">
+      <h3 class="center bottom topMargin">Select Your Device</h3>
+    </div>
+    <div class="row center topMargin">
+      <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="version in selectedVersions track by $index">
+        <div class="">
+          <img class="selectionImage" ng-src="{{version.imgurl}}" alt="device-image">
+            <div class="caption">
+              <h3>{{version.devicename}}</h3>
+              <h6>Description: {{version.description}}</h6>
+              <button type="button" class="btn btn-success" ui-sref="details({id:version._id})">Choose</button>
+            </div>
+        </div>
+      </div>
+     </div>
+  </div>

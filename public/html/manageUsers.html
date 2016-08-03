@@ -1,0 +1,54 @@
+<h1>Manage Users</h1>
+
+<input placeholder="search users" class="searchInput" type="text" ng-model="sortByName">
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th># of Transactions (Click to see details)</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tr ng-repeat="user in users | filter: sortByName">
+        <td>{{user.name}}</td>
+        <td>{{user.phone}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.address}}</td>
+        <td>{{user.transactions.length}}</td>
+        <td attr={{user._id}}>Edit</td>
+        <td ng-click=deleteUser(user._id)>Delete</td>
+    </tr>
+</table>
+
+<div class="row">
+    <div class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Quote for your {{device.devicename}}: $100</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Name:</p>
+                    <p>Email:</p>
+                    <p>Address: </p>
+                    <p></p>
+                    <p>City: </p>
+                    <p>State: </p>
+                    <p>Country</p>
+                    <p>Phone: </p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click="editUser()">Confirm Sale</button>
+                    <button type="button" class="btn btn-primary" ng-click="cancelEdit()">Cancel Sale</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

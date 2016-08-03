@@ -1,0 +1,46 @@
+<section class="profile-wrapper">
+	<h2>{{user.name}}&#39;s Dashboard</h2>
+	<hr>
+
+	<div class="row">
+  	<div class="col-md-9 col-md-push-3">
+			<h3>All My Transactions</h3>
+			<label for="search">Find a Transaction:</label>
+			<input placeholder="example: 'iPhone 6s'" class="searchInput" type="text" ng-model="sortByName">
+			<br>
+			<table class="table">
+				<tr>
+					<th>Date</th>
+					<th>Device Name</th>
+					<th>Status</th>
+					<th>Quote</th>
+				</tr>
+				<tr ng-repeat="transaction in user.transactions | filter: sortByName">
+					<td>{{transaction.date | date : format : short }}</td>
+					<td>{{transaction.devicename}}</td>
+					<td>{{transaction.status}}</td>
+					<td>{{transaction.quote | currency}} </td>
+				</tr>
+			</table>
+		</div>
+  	<div class="col-md-3 col-md-pull-9">
+			<img width="150" ng-src="{{user.profilePic}}" alt="">
+			<h4>Name: {{user.name}}</h4>
+			<p>Sales Pending: </p>
+			<p>Total Sales: {{user.totalSales}}</p>
+			<p>Total Income: {{user.totalIncome | currency}}</p>
+			<p>Join Date: {{user.joinDate | date : format : short}}</p>
+		</div>
+  </div>
+	</section>
+
+<div class="send-message-wrapper">
+	<div class="row">
+		<h3 style="color:#fff">Having Issues? Send a Message to ABC Company</h3>
+		<h5 style="color:#fff;">We will get back to you within 24 hours!</h5>
+		<textarea placeholder="250 words max" ng-model="newMessage" name="" id="" cols="100" rows="10"></textarea>
+	</div>
+	<div>
+		<button class="btn btn-default" id="sendMessage" ng-click="askAQuestion()">Send Message</button>
+	</div>
+</div>

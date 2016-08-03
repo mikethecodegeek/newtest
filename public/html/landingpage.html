@@ -1,0 +1,22 @@
+<div class="landing-heading">
+	<div class="row">
+	  <div class="col-md-8 col-md-push-4">
+	Some kind of pic can go here or I can move the cards up here?
+		</div>
+	  <div class="col-md-4 col-md-pull-8">
+			<div class="splash-header" style="font-size:5em; color: #fff; font-weight: bold;">
+				Trade in Your Device for Cash
+			</div>
+		</div>
+	</div>
+</div>
+<section class="general-section">
+	<h2>Choose the Device You Want to Sell</h2>
+<hr>
+		<div class="row deviceRow">
+			<div  ui-sref="home({devicetype:device.devicetype})"ng-repeat="device in devicetypes" class="deviceEach col-sm-3 device-card">
+					<img width="175" src={{device.imgurl}} />
+						<h3 class="deviceTypes">Sell {{device.devicetype}}</h3>
+			</div>
+		</div>
+</section>

@@ -1,0 +1,78 @@
+<h2 class="getQuote">Get a Quote</h2>
+<h3 class="text-center">{{device.devicename}}</h3>
+<div class="row">
+    <img class="deviceImg" ng-src="{{device.imgurl}}" alt="">
+</div>
+
+<div class="row">
+    <form>
+    <div class="col-sm-3"></div>
+    <div class="col-sm-3">
+        <div class="dropdown">
+            <label class="condition">Condition: </label>
+            <select id="dropdownMenu1" class="form-control">
+                <option value="new">New</option>
+                <option value="used">Used</option>
+                <option value="broken">Broken</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="dropdown">
+            <label class="carrier">Carrier:</label>
+            <select id="dropdownMenu3" class="form-control">
+                <option value="Verizon">Verizon</option>
+                <option value="AT&T">AT&T</option>
+                <option value="T Mobile">T Mobile</option>
+                <option value="Sprint">Sprint</option>
+                <option value="Other Carrier">Other Carrier</option>
+                <option value="Unlocked">Unlocked</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-3"></div>
+    </form>
+</div>
+
+
+
+
+<div class="row">
+    <button class="btn btn-primary" id="getQuote" ng-click="openModal()">Get Quote</button>
+</div>
+
+<div class="row">
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Quote for your {{device.devicename}}: {{customQuote}}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Condition: {{condition}}</p>
+                    <p>Carrier: {{carrier}}</p>
+                    <h3 class="locked">Choose Payment Method</h3>
+                    <label class="radio-inline">
+                        <input name="radioGroup" id="paypal" value="option1" type="radio">PayPal
+                    </label>
+                    <label class="radio-inline">
+                        <input name="radioGroup" id="check" value="option2" type="radio">Check
+                    </label>
+                    <label class="radio-inline">
+                        <input name="radioGroup" id="ach" value="option2" type="radio">ACH
+                    </label>
+                   
+                   
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click="addTransaction(user.transaction)">Confirm Sale</button>
+                    <button type="button" class="btn btn-primary" ng-click="cancelTransaction()">Cancel Sale</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

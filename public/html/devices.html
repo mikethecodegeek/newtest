@@ -1,0 +1,165 @@
+
+<h1 class="h1 bottom center" id="manageDevices">Manage Devices</h1>
+
+<div class="container categoriesContainer">
+    
+    <h3 class="center bottom title">Add Categories, Brands & Models</h3>
+
+    <div class="row bottom top">
+        <div ng-repeat="type in devicetypes" class="col-sm-3">
+            <div class="item" ng-click="setDeviceType(type)">
+                <img class="deviceType" width="150" src={{type.imgurl}}>
+                <span>{{type.devicetype}}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <button class="btn btn-primary" id="addDeviceCat" ng-click="toggleAddDevice()" title="Add device category to your website">Add Device Category</button>
+    </div>
+       <div ng-show="adding" class="row bottom">
+
+        <div class="col-sm-2 left">
+            <p>New Category
+            <input placeholder="category" type="text" ng-model="newDeviceType"></p>   
+        </div>
+        <div class="col-sm-2">
+            <p>Category Image
+            <input placeholder="url" type="text" ng-model="newDeviceTypeImage"></p>
+        </div>
+        <div class="col-sm-2">
+            <button class="btn btn-primary btn-lg categoryBtn" ng-click="addNewDeviceType()">Add Category</button>
+
+        </div>
+    </div>
+    
+    <div class="row">
+        <button class="btn btn-primary" id="addDeviceCat" ng-click="toggleAddBrand()" title="Add brand to device category">Add Brand</button>
+    </div>
+
+    <div ng-hide="brands" class="row bottom">
+
+        <div class="col-sm-2 left">
+            <p>Device Category:
+                <select name="brands" ng-model="newBrandType">
+                    <option ng-repeat="type in devicetypes" value={{type.devicetype}}>{{type.devicetype}}</option>
+                </select>
+        </div>
+
+<<<<<<< HEAD
+    <div class="row">
+        <button class="btn btn-primary" id="addDeviceCat" ng-click="toggleAddBrand()">Add Brand</button>
+    </div>
+    <div ng-hide="brands" class="row bottom">
+        <p class="instructions">Manage your brands:</p>
+=======
+>>>>>>> 79c533e9ad0cf0e2f0c3b271bf0669aefa0f2905
+        <div class="col-sm-2">
+            <p>New Brand:
+                <input placeholder="category" type="text" ng-model="newBrand"></p>
+        </div>
+        <div class="col-sm-2">
+            <p>Brand Image:
+                <input placeholder="url" type="text" ng-model="newBrandImage"></p>
+        </div>
+
+        <div class="col-sm-2">
+            <button class="btn btn-primary btn-lg brandBtn" ng-click="addBrand()">Add Brand</button>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <button class="btn btn-primary" id="addDeviceCat" ng-click="toggleAddModel()" title="Add device model to your brand">Add Device Model</button>
+    </div>
+
+    <div ng-show="models" class="row bottom">
+        <div class="col-sm-2 left">
+            <p>Type:</p>
+                <select name="modelselecttype" ng-model="modelSelectType">
+                    <option ng-repeat="type in devicetypes" value={{type.devicetype}}>{{type.devicetype}}</option>
+                </select>
+        </div>
+        <div class="col-sm-2">
+            <p>Brand:</p>
+                <select name="modelselecttype" ng-model="modelSelectBrand">
+                    <option ng-repeat="brand in brands" value={{brand.name}}>{{brand.name}}</option>
+                </select>
+        </div>
+        <div class="col-sm-2">
+            <p>New Model:
+                <input placeholder="category" type="text" ng-model="newDeviceModel"></p>
+        </div>
+        <div class="col-sm-2">
+            <p>Model Image:
+                <input placeholder="url" type="text" ng-model="newDeviceModelImage"></p>
+        </div>
+
+
+        <div class="col-sm-2">
+            <button class="btn btn-primary btn-lg modelBtn" ng-click="addNewDeviceModel()">Add Model</button>
+        </div>
+    </div>
+
+</div> 
+        
+<div class="container devicesContainer">
+    <h3 class="center new top title">Add Device</h3>
+    <div class="row new">
+        <div class="col-sm-2">
+            <p>Type:
+                <select name="modelselecttype" ng-model="versionSelectType">
+                    <option ng-repeat="type in devicetypes" value={{type.devicetype}}>{{type.devicetype}}</option>
+                </select>
+        </div>
+        <div class="col-sm-2">
+            <p>Brand:
+                <select name="modelselecttype" ng-model="versionSelectBrand">
+                    <option ng-repeat="brand in brands" value={{brand.name}}>{{brand.name}}</option>
+                </select>
+        </div>
+        <div class="col-sm-2">
+            <p>Model:
+                <select name="modelselecttype" ng-model="versionSelectModel">
+                    <option ng-repeat="model in devicemodels" value={{model.name}}>{{model.name}}</option>
+                </select>
+        </div>
+    </div>
+    <div class="row new">
+        <div class="col-sm-4">
+            <span>Device Name: </span><input type="text" ng-model = "newDevice.name">
+        </div>
+        <div class="col-sm-4">
+            <span>Description: </span><input placeholder="name" type="text" ng-model="newDevice.description">
+        </div>
+        <div class="col-sm-4">
+            <span>Image URL: </span><input placeholder="url" type="text" ng-model="newDevice.image">
+        </div>
+    </div>
+    <div class="row new">
+        <div class="col-sm-4">
+            <span>New Price: </span><input placeholder="new" type="number" ng-model="newDevice.new">
+        </div>
+        <div class="col-sm-4">
+            <span>Used Price: </span><input placeholder="used" type="number" ng-model="newDevice.used">
+        </div>
+        <div class="col-sm-4">
+
+            <span>Broken Price: </span><input placeholder="broken" type="number" ng-model="newDevice.broken">
+            <button title="Add new device to website" class="btn btn-primary addDeviceBtn" ng-click="addDevice()">Add Device</button>
+        </div>
+    </div>
+</div>
+
+<div class="container bottom currentDevicesContainer">
+    <h3 class="center new title">Current Devices</h3>
+    <div class="card card-primary text-xs-center" ng-repeat="device in devices">
+        <div class="card-block">
+            <blockquote class="card-blockquote col-sm-2">
+                <p>{{device.devicename}}</p>
+                <img class="controlImage" src={{device.imgurl}} />
+            </blockquote>
+        </div>
+    </div>
+</div>
