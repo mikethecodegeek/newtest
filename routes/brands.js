@@ -3,7 +3,7 @@
  */
 var express = require('express');
 var router = express.Router();
-var Brands = require('../models/brands');
+var Brands = require('../models/Brands');
 var DeviceTypes = require('../models/deviceTypes');
 
 
