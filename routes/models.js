@@ -5,7 +5,7 @@ var express = require('express');
 var router = express.Router();
 var DeviceModels = require('../models/devicemodels');
 var request = require('request');
-var Brands = require('../models/brands');
+var Brands = require('../models/Brands');
 
 router.get('/', (req,res)=> {
     DeviceModels.find({})
